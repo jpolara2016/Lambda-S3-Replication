@@ -33,4 +33,4 @@ There are 2 functions for copying and deleting objects so use it accordingly how
   ```
 2. AWS Lambda fucntion copy_objects (Python3.8)
 3. AWS Lambda fucntion delete_objects (Python3.8)
-4. Configure Trigger for the funciton you created
+4. Configure Lambda Trigger for your functions
