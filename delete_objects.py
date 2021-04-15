@@ -22,15 +22,7 @@ def lambda_handler(event, context):
    file_key_name = event['Records'][0]['s3']['object']['key']
 
 
-   try:
-      print ("Using waiter to waiting for object to persist through s3 service")
-      waiter = s3_client.get_waiter('object_exists')
-      waiter.wait(Bucket=source_bucket_name, Key=file_key_name)
-      # S3 delete object operation
-      s3_client.delete_object(Bucket=destination_bucket_name, Key=file_key_name)
-      print("Destination Bucket: {0}, Object Name : {1}".format(destination_bucket_name, file_key_name))
-      print("Object deleted successfully...")
-
-   except Exception as err:
-      print ("Error -"+str(err))
-      return e
+   # S3 delete object operation
+   s3_client.delete_object(Bucket=destination_bucket_name, Key=file_key_name)
+   print("Destination Bucket: {0}, Object Name : {1}".format(destination_bucket_name, file_key_name))
+   print("Object deleted successfully...")
